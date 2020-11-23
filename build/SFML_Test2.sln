@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{D9F82B38-79A2-3618-A657-2E51D6120E30}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47574B70-0644-3358-A9A3-0FD1BC7DDB61} = {47574B70-0644-3358-A9A3-0FD1BC7DDB61}
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F} = {6DE9CBCA-B526-3DD4-858D-57244559D32F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simulation-course", "Simulation-course.vcxproj", "{47574B70-0644-3358-A9A3-0FD1BC7DDB61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F} = {6DE9CBCA-B526-3DD4-858D-57244559D32F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{6DE9CBCA-B526-3DD4-858D-57244559D32F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9F82B38-79A2-3618-A657-2E51D6120E30}.Debug|x64.ActiveCfg = Debug|x64
+		{D9F82B38-79A2-3618-A657-2E51D6120E30}.Release|x64.ActiveCfg = Release|x64
+		{47574B70-0644-3358-A9A3-0FD1BC7DDB61}.Debug|x64.ActiveCfg = Debug|x64
+		{47574B70-0644-3358-A9A3-0FD1BC7DDB61}.Debug|x64.Build.0 = Debug|x64
+		{47574B70-0644-3358-A9A3-0FD1BC7DDB61}.Release|x64.ActiveCfg = Release|x64
+		{47574B70-0644-3358-A9A3-0FD1BC7DDB61}.Release|x64.Build.0 = Release|x64
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F}.Debug|x64.ActiveCfg = Debug|x64
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F}.Debug|x64.Build.0 = Debug|x64
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F}.Release|x64.ActiveCfg = Release|x64
+		{6DE9CBCA-B526-3DD4-858D-57244559D32F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCB41622-893B-3172-8326-3EE2582BF58A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
