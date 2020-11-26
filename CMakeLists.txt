@@ -5,7 +5,7 @@ set(CompilerFlags
     CMAKE_CXX_FLAGS_DEBUG
     CMAKE_CXX_FLAGS_RELEASE
     CMAKE_C_FLAGS      
-    CMAKE_C_FLAGS_DEBUG    
+    CMAKE_C_FLAGS_DEBUG
     CMAKE_C_FLAGS_RELEASE        
     )
 if(MSVC) 
@@ -23,5 +23,5 @@ SET(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 set(SRCS "main.cpp")
 set(HEADERS )
-add_executable (Simulation-course ${SRCS} ${HEADERS} "coureur.cpp" "coureur.hpp")
+add_executable (Simulation-course ${SRCS} ${HEADERS} "coureur.cpp" "coureur.hpp" "parcours.cpp" "parcours.hpp")
 target_link_libraries(Simulation-course sfml-graphics sfml-window)

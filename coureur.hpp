@@ -1,5 +1,4 @@
-#if !defined(coureur)
-#define coureur
+#pragma once
 #include <string>
 
 
@@ -20,5 +19,3 @@ private:
     float semainesPreparation;
     float hydratation;
 };
-
-#endif
