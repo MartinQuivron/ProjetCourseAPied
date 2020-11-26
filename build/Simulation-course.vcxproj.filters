@@ -4,11 +4,22 @@
     <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\marti\source\repos\ProjetCourseAPied\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{44B979FD-BECD-3DA4-80AF-BB5A372D8A04}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{46CED155-140D-3CE0-8493-037DC71C96DA}</UniqueIdentifier>
     </Filter>

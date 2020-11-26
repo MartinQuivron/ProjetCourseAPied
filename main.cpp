@@ -1,24 +1,19 @@
 #include <SFML/Graphics.hpp>
+#include "coureur.hpp"
+#include <iostream>
+#include <time.h>
+#include <locale.h>
+using namespace std;
 
 int main() {
+	setlocale(LC_ALL, "fr-FR");
+	srand(time(nullptr));
+	Coureur tableau[20];
+	for (int i = 0; i < 20; i++) {
+		tableau[i].print();
+		cout << endl << endl;
+	}
+	tableau[19].print();
 
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
-
-    return 0;
+	return 0;
 }
