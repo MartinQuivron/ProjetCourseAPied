@@ -5,6 +5,6 @@ public:
 	Parcours();
 	int kilometrage;
 private:
-	
+	int juif;
 };
 
