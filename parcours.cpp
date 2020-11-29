@@ -4,5 +4,11 @@
 using namespace std;
 
 Parcours::Parcours() {
-	int chacal;
+	condition = rand() % 3;
+}
+
+void Parcours::genParcours() {
+	distance = 42000;
+	hauteur= 1000;
+
 }

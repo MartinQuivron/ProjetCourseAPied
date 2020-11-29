@@ -7,9 +7,15 @@
     <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\parcours.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\marti\source\repos\ProjetCourseAPied\parcours.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

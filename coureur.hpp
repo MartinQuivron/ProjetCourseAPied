@@ -7,7 +7,9 @@ class Coureur
 public:
     Coureur();
     void print();
-    float dParcouru = 0;
+    float getVitesseMoy();
+    float getDistanceCoureur();
+    float getTemps();
 private:
     std :: string tab[20] = { "Michel", "Jean", "Richard", "Dominique", "Sonic", "Nathalie", "Thomas", "Mikael", "Germain", "Tongue", "Grigny", "Marine", "WiiSport", "Mazence", "Jacques", "Mii", "Cortex", "Pigeon", "Solange", "EmmaTaVoisine" };
     std :: string nom;
@@ -16,6 +18,7 @@ private:
     float taille;
     float pChaussure;
     float vMoyenne;
+    float vMoyenneEnMetre;
     float semainesPreparation;
     float hydratation;
 };

@@ -175,6 +175,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\main.cpp" />
     <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.cpp" />
     <ClInclude Include="C:\Users\marti\source\repos\ProjetCourseAPied\coureur.hpp" />
+    <ClCompile Include="C:\Users\marti\source\repos\ProjetCourseAPied\parcours.cpp" />
+    <ClInclude Include="C:\Users\marti\source\repos\ProjetCourseAPied\parcours.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\marti\source\repos\ProjetCourseAPied\build\ZERO_CHECK.vcxproj">
