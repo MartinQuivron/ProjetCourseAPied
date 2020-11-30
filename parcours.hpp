@@ -8,12 +8,13 @@ using namespace std;
 class Parcours {
 public:
 	Parcours();
-	void genParcours();
+	void print();
+	void course(Coureur joueur);
 private:
-	int distance;
-	int hauteur;
+	float distance;
+	int nombreEtapes;
+	vector<int> etapes;
 	vector<int> ravitaillement;
-	vector<float> denivPos;
-	vector<float> denivNeg;
+	vector<float> denivele;
 	int condition;
 };

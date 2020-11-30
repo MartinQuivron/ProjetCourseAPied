@@ -23,15 +23,19 @@ float Coureur::getDistanceCoureur()
     return distanceParcourue;
 }
 
+float Coureur::setVitesseMoy(float vMoyenneEnMetre) {
+    float vitMoyenne = vMoyenneEnMetre;
+    return vitMoyenne;
+}
 float Coureur::getVitesseMoy()
 {
     float poidChaussure = pChaussure * 0.011;
-    float vitesseMoy = vMoyenne - (poidChaussure/100 * vMoyenne);
+    float vitesseMoy = setVitesseMoy(vMoyenneEnMetre) - (poidChaussure/100 * setVitesseMoy(vMoyenneEnMetre));
     return vitesseMoy;
 }
 
 float Coureur::getTemps(){
-    float temps = 42000 / (getVitesseMoy()/3.6);
+    float temps = 42000 / getVitesseMoy();
     return temps;
 }
 
@@ -41,10 +45,10 @@ void Coureur::print() {
     cout << "masse : " << masse << " Kg" << endl;
     cout << "taille : " << taille << " cm" << endl;
     cout << "Poids chaussure : " << pChaussure << " gr" << endl;
-    cout << "Vitesse moyenne épreuve précédente : " << vMoyenne << " Km/h" << " -> " << vMoyenneEnMetre << " m/s" << endl;
+    cout << "Vitesse moyenne épreuve précédente : " << getVitesseMoy() << " m/s" << " -> " << getVitesseMoy()*3.6 << " km/h" << endl;
     cout << "Nombre semaines de préparation : " << semainesPreparation << endl;
     cout << "Hydratation : " << hydratation << " l" << endl;
-    cout << "Vitesse Moyenne : " << getVitesseMoy() << " Km/h" << " -> " << getVitesseMoy()/3.6 << " m/s" << endl;
+    cout << "Vitesse Moyenne : " << getVitesseMoy() << " m/s" << " -> " << getVitesseMoy()*3.6 << " km/h" << endl;
     cout << "Temps : " << getTemps() << " secondes" << endl;
 }
 
