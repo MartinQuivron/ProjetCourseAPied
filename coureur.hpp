@@ -7,7 +7,7 @@ class Coureur
 public:
     Coureur();
     void print();
-    float setVitesseMoy(float);
+    void setVitesseMoy(float);
     float getVitesseMoy();
     float getDistanceCoureur();
     float getTemps();
@@ -21,5 +21,7 @@ private:
     float vMoyenne;
     float vMoyenneEnMetre;
     float semainesPreparation;
+    float hydratation_initiale;
     float hydratation;
+    float vitesse;
 };

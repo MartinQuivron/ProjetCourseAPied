@@ -11,10 +11,11 @@ public:
 	void print();
 	void course(Coureur joueur);
 private:
+	int ravitaillement[8];
 	float distance;
 	int nombreEtapes;
 	vector<int> etapes;
-	vector<int> ravitaillement;
+	//vector<int> ravitaillement;
 	vector<float> denivele;
 	int condition;
 };
