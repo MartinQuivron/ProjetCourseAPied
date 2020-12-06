@@ -14,11 +14,12 @@ int main() {
 		tableau[i].print();
 		cout << endl << endl;
 	}*/
-	tableau[19].print();
+	tableau[18].print();
 	Parcours joueur;
 	joueur.print();
-	
+
 	Parcours h;
-	h.course(tableau[19]);
+	h.course(tableau[18]);
 	return 0;
+
 }

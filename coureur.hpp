@@ -7,10 +7,17 @@ class Coureur
 public:
     Coureur();
     void print();
-    void setVitesseMoy(float);
     float getVitesseMoy();
-    float getDistanceCoureur();
+    float getDistance();
+    void setDistance(float distanceAdd);
+    float getDistanceTotale();
+    float getTaille();
+    float getMasse();
     float getTemps();
+    float getHydratation();
+    void setHydratation(float hydra);
+    float getVitesseInstant();
+    void setVitesseInstant(float vitesseIns);
 private:
     string tab[20] = { "Michel", "Jean", "Richard", "Dominique", "Sonic", "Nathalie", "Thomas", "Mikael", "Germain", "Tongue", "Grigny", "Marine", "WiiSport", "Mazence", "Jacques", "Mii", "Cortex", "Pigeon", "Solange", "EmmaTaVoisine" };
     string nom;
@@ -24,4 +31,6 @@ private:
     float hydratation_initiale;
     float hydratation;
     float vitesse;
+    float vitesseInstant;
+    float distance;
 };
