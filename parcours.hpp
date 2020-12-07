@@ -11,6 +11,7 @@ public:
 	void course(Coureur &joueur);
 	void course1(Coureur& joueur);
 	float vent(Coureur &joueur, float vitesse);
+	//-----------------------------GETTERS------------------------------------------------------
 	vector<int> getEtapes();
 	float getNbEtapes();
 	vector<float> getDeniv();
@@ -22,7 +23,5 @@ private:
 	float distance;
 	int nombreEtapes;
 	vector<int> etapes;
-	//vector<int> ravitaillement;
 	vector<float> denivele;
-	//int condition;
 };

@@ -4,6 +4,7 @@
 using namespace std;
 
 int i = 0;
+//-----------------Création Coureur--------------------------------------------------------------------------------------------
 Coureur::Coureur() {
     temps = 0;
     distance = 0;
@@ -25,9 +26,7 @@ Coureur::Coureur() {
     i++;
 }
 
-void Coureur::setPlace() {
-    place++;
-}
+//----------------------------GETTERS--------------------------------------------------------------------------------------
 
 float Coureur::getPlace() {
     return place;
@@ -37,26 +36,13 @@ float Coureur::getTemps() {
     return temps;
 }
 
-void Coureur::setTemps(float tmps) {
-    temps = tmps;
-    //cout << "temppppppppppppp " << temps << endl;
-}
-
 float Coureur::getDistance()
 {
     return distance;
 }
 
-void Coureur::setDistance(float distanceAdd) {
-    distance = distanceAdd;
-}
-
 float Coureur::getVitesseInstant() {
     return vitesseInstant;
-}
-
-void Coureur::setVitesseInstant(float vitesseIns) {
-    vitesseInstant = vitesseIns;
 }
 
 float Coureur::getHydratationInit() {
@@ -67,16 +53,8 @@ float Coureur::getHydratation() {
     return hydratation;
 }
 
-void Coureur::setHydratation(float hydra) {
-    hydratation = hydra;
-}
-
 float Coureur::getApportHydrique() {
     return apportHydrique;
-}
-
-void Coureur::setApportHydrique(float apport) {
-    apportHydrique = apport;
 }
 
 float Coureur::getDistanceTotale()
@@ -87,10 +65,6 @@ float Coureur::getDistanceTotale()
 float Coureur::getVitesseMoy()
 {
     return vitesse;
-}
-
-void Coureur::setVitesseMoy(float vitesse) {
-    vitesseMoy = vitesse;
 }
 
 float Coureur::getTaille()
@@ -111,7 +85,41 @@ string Coureur::getName() {
     return nom;
 }
 
+//----------------------------SETTERS--------------------------------------------------------------------------------------
+
+void Coureur::setPlace() {
+    place++;
+}
+
+void Coureur::setTemps(float tmps) {
+    temps = tmps;
+    //cout << "temppppppppppppp " << temps << endl;
+}
+
+void Coureur::setDistance(float distanceAdd) {
+    distance = distanceAdd;
+}
+
+void Coureur::setVitesseInstant(float vitesseIns) {
+    vitesseInstant = vitesseIns;
+}
+
+void Coureur::setHydratation(float hydra) {
+    hydratation = hydra;
+}
+
+void Coureur::setApportHydrique(float apport) {
+    apportHydrique = apport;
+}
+
+
+void Coureur::setVitesseMoy(float vitesse) {
+    vitesseMoy = vitesse;
+}
+
+//-----------------affichage Coureur--------------------------------------------------------------------------------------------
 void Coureur::print() {
+
     cout << "nom : " << nom << endl;
     cout << "numéro de dossad : " << dossard << endl;
     cout << "masse : " << masse << " Kg" << endl;
