@@ -24,8 +24,9 @@ public:
     void setApportHydrique(float apport);
     float getHydratationInit();
     float getSemaine();
-    void setPlace(int pla);
+    void setPlace();
     float getPlace();
+    string getName();
     float temps;
     int dossard;
     float distance;

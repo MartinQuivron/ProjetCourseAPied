@@ -26,8 +26,8 @@ Coureur::Coureur() {
     i++;
 }
 
-void Coureur::setPlace(int pla) {
-    place = pla;
+void Coureur::setPlace() {
+    place++;
 }
 
 float Coureur::getPlace() {
@@ -40,6 +40,7 @@ float Coureur::getTemps() {
 
 void Coureur::setTemps(float tmps) {
     temps = tmps;
+    //cout << "temppppppppppppp " << temps << endl;
 }
 
 float Coureur::getDistance()
@@ -107,6 +108,10 @@ float Coureur::getSemaine() {
     return semainesPreparation;
 }
 
+string Coureur::getName() {
+    return nom;
+}
+
 /*float Coureur::getTemps(){
     float temps = 42000 / getVitesseMoy();
     return temps;
@@ -114,7 +119,7 @@ float Coureur::getSemaine() {
 
 
 void Coureur::print() {
-    cout << "Place : " << getPlace() << endl;
+    cout << "Place : " << place << endl;
     cout << "nom : " << nom << endl;
     cout << "numéro de dossad : " << dossard << endl;
     cout << "masse : " << masse << " Kg" << endl;
@@ -127,6 +132,3 @@ void Coureur::print() {
     cout << "Temps : " << temps << " secondes" << endl;
     cout << "Distance : " << distance << " km" << endl;
 }
-
-
-

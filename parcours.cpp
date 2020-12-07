@@ -28,7 +28,7 @@ Parcours::Parcours() {
 
 }
 
-float Parcours::vent(Coureur joueur,float vitesse) {
+float Parcours::vent(Coureur &joueur,float vitesse) {
 	float vMoy = vitesse;
 	float Pr = vMoy * joueur.getMasse() * 0.98;
 	float Pa = 0.5 * Pair * 0.137 * (joueur.getTaille() / 100) * vMoy;
@@ -40,13 +40,9 @@ float Parcours::vent(Coureur joueur,float vitesse) {
 	return vMoy;
 }
 
-void Parcours::course(Coureur joueur){
+void Parcours::course(Coureur &joueur){
 	float temps = joueur.getTemps();
 	float distance = joueur.getDistance();
-	if (distance >= 42000) {
-		joueur.setPlace(placeplace);
-		placeplace++;
-	}
 	
 	//float vitesseMoy = joueur.getVitesseMoy();
 	float tempo;
@@ -58,10 +54,10 @@ void Parcours::course(Coureur joueur){
 		float vitesseDenivPOS = joueur.getVitesseMoy() - (joueur.getVitesseMoy() * ((denivele[i] / 1.5) / 100));
 		float vitesseDenivNEG = joueur.getVitesseMoy() - (joueur.getVitesseMoy() * ((denivele[i] / 1.5)* 0.35) / 100);
 		if (denivele[i] < 0) {
-			//cout << "Descente ------------" << endl;
+			//cout << "Descente ---------------------------------------------------------------" << endl;
 		}
 		if (denivele[i] > 0) {
-			//cout << "montée ------------" << endl;
+			//cout << "montée -----------------------------------------------------------------" << endl;
 		}
 		while (distance < etapes[i]) {
 			
@@ -94,6 +90,7 @@ void Parcours::course(Coureur joueur){
 			float apport = joueur.getApportHydrique() / 1000;
 			for (int i = 0; i < 8; i++) {
 				if (joueur.getDistance() >= ravitaillement[i] - joueur.getVitesseInstant() && joueur.getDistance() < ravitaillement[i]) {
+					//cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------------ravitaillement--------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
 					float ravi = (rand() % 50) * 10;
 					double test = (apport + hydratInit) / (0.5 * (joueur.getTemps() / 3600));
 					float apportInit = joueur.getApportHydrique() + ravi;
@@ -133,18 +130,18 @@ void Parcours::course(Coureur joueur){
 			//cout << joueur.getDistance() << endl;
 			//cout << "son hydratation : " << joueur.getHydratation() << endl;
 			joueur.setTemps(temps);
+			if (joueur.getDistance() >= 42000) {
+				joueur.setPlace();
+			}
 		}
 	}
 	joueur.temps = temps;
 	joueur.distance = distance;
-	cout << "Fin en : " << joueur.temps << " secondes" << endl;
-	cout << "distance " << joueur.distance << " m" << endl;
+	//cout << "Fin en : " << joueur.temps << " secondes" << endl;
+	//cout << "distance " << joueur.distance << " m" << endl;
 }
 
-void Parcours::print() {
-	/*cout << "Fin en : " << temps << " secondes" << endl;
-	cout << "distance " << joueur.getDistance() << " m" << endl;*/
-}
+
 
 float Parcours::getNbEtapes() {
 	return nombreEtapes;
