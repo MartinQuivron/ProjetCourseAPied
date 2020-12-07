@@ -7,6 +7,7 @@
 using namespace std;
 
 Parcours::Parcours() {
+	placeplace = 1;
 	distance = 42000;
 	nombreEtapes = rand() % 51 + 50;
 	etapes.push_back(0);
@@ -35,22 +36,17 @@ float Parcours::vent(Coureur joueur,float vitesse) {
 	Pa = 0.5 * Pair * 0.137 * (joueur.getTaille() / 100) * (vMoy + (vVent * vVent) * vMoy);
 	Pr = PtMAX - Pa;
 	vMoy = Pr / (joueur.getMasse() * 0.98);
-	cout << "puissance vent : " << -Pa << endl;
+	//cout << "puissance vent : " << -Pa << endl;
 	return vMoy;
 }
 
-float Parcours::hydratation(Coureur joueur) {
-	for (int i = 0; i < 8; i++) {
-		if (joueur.getDistance() >= ravitaillement[i] - joueur.getVitesseInstant() && joueur.getDistance() < ravitaillement[i]) {
-			//int ravi = 
-		}
-	}
-	return 0;
-}
-
 void Parcours::course(Coureur joueur){
-	int temps = 0;
+	float temps = joueur.getTemps();
 	float distance = joueur.getDistance();
+	if (distance >= 42000) {
+		joueur.setPlace(placeplace);
+		placeplace++;
+	}
 	
 	//float vitesseMoy = joueur.getVitesseMoy();
 	float tempo;
@@ -62,10 +58,10 @@ void Parcours::course(Coureur joueur){
 		float vitesseDenivPOS = joueur.getVitesseMoy() - (joueur.getVitesseMoy() * ((denivele[i] / 1.5) / 100));
 		float vitesseDenivNEG = joueur.getVitesseMoy() - (joueur.getVitesseMoy() * ((denivele[i] / 1.5)* 0.35) / 100);
 		if (denivele[i] < 0) {
-			cout << "Descente ------------" << endl;
+			//cout << "Descente ------------" << endl;
 		}
 		if (denivele[i] > 0) {
-			cout << "montée ------------" << endl;
+			//cout << "montée ------------" << endl;
 		}
 		while (distance < etapes[i]) {
 			
@@ -74,29 +70,90 @@ void Parcours::course(Coureur joueur){
 				distance += tempo;
 				joueur.setDistance(distance);
 				joueur.setVitesseInstant(tempo);
-				cout << tempo << endl;
+				//cout << tempo << endl;
 			}
 			if (denivele[i] > 0) {
 				tempo = vent(joueur, vitesseDenivPOS);
 				distance += tempo;
 				joueur.setDistance(distance);
 				joueur.setVitesseInstant(tempo);
-				cout << tempo << endl;
+				//cout << tempo << endl;
 			}
 			if (denivele[i] == 0) {
 				tempo = vent(joueur, joueur.getVitesseMoy());
 				distance += tempo;
 				joueur.setDistance(distance);
 				joueur.setVitesseInstant(tempo);
-				cout << tempo << endl;
+				//cout << tempo << endl;
 			}
 			temps++;
-			cout << joueur.getDistance() << endl;
+			//----------------------------------------------------------------------------------------
+			float nice = joueur.getHydratation() - 0.139;//(500/3600)
+			joueur.setHydratation(nice);
+			float hydratInit = joueur.getHydratationInit() / 1000;
+			float apport = joueur.getApportHydrique() / 1000;
+			for (int i = 0; i < 8; i++) {
+				if (joueur.getDistance() >= ravitaillement[i] - joueur.getVitesseInstant() && joueur.getDistance() < ravitaillement[i]) {
+					float ravi = (rand() % 50) * 10;
+					double test = (apport + hydratInit) / (0.5 * (joueur.getTemps() / 3600));
+					float apportInit = joueur.getApportHydrique() + ravi;
+					joueur.setApportHydrique(apportInit);
+					
+					float ravitaillement = joueur.getHydratation() + ravi;
+					joueur.setHydratation(ravitaillement);
+					if (test < 0.9 && test >= 0.4) {
+						float pourcent = ((9 - test * 10) * 0.038) + 1;
+						float vitejoueur = joueur.getVitesseMoy();
+						vitejoueur -= vitejoueur * pourcent;
+						joueur.setVitesseMoy(vitejoueur);
+					}
+					if (test < 0.4) {
+						joueur.setDistance(99999);
+					}
+				}
+			}
+			//---------------------------------------------------------------------------------------
+			if (joueur.getSemaine() == 8) {
+				if (joueur.getDistance() >= 21000 - joueur.getVitesseInstant() && joueur.getDistance() < 21000) {
+					float baisse = (-0.2 / 21000) * joueur.getDistance() + 1.2;
+					float vitevite = joueur.getVitesseMoy() * baisse;
+					joueur.setVitesseMoy(vitevite);
+				}
+			}
+			if (joueur.getSemaine() > 8 && joueur.getSemaine() < 16){
+				float dist = (42000 / 2 * (1 + (joueur.getSemaine() - 8) / 8));
+				//cout << "-----------------------------------------------------------------------------------------" << dist << endl;
+				if (joueur.getDistance() >= dist - joueur.getVitesseInstant() && joueur.getDistance() < dist) {
+					float baisse = (-0.2 / dist) * joueur.getDistance() + 1.2;
+					float vitevite = joueur.getVitesseMoy() * baisse;
+					joueur.setVitesseMoy(vitevite);
+				}
+			}
+			//----------------------------------------------------------------------------------------
+			//cout << joueur.getDistance() << endl;
+			//cout << "son hydratation : " << joueur.getHydratation() << endl;
+			joueur.setTemps(temps);
 		}
 	}
-	cout << "Fin en : " << temps << " secondes" << endl;
+	joueur.temps = temps;
+	joueur.distance = distance;
+	cout << "Fin en : " << joueur.temps << " secondes" << endl;
+	cout << "distance " << joueur.distance << " m" << endl;
 }
 
 void Parcours::print() {
-	cout << "etapes" << nombreEtapes << endl;
+	/*cout << "Fin en : " << temps << " secondes" << endl;
+	cout << "distance " << joueur.getDistance() << " m" << endl;*/
+}
+
+float Parcours::getNbEtapes() {
+	return nombreEtapes;
+}
+
+vector<int> Parcours::getEtapes() {
+	return etapes;
+}
+
+vector<float> Parcours::getDeniv() {
+	return denivele;
 }
