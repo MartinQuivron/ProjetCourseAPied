@@ -27,6 +27,7 @@ int main() {
 	for (int i = 1; i < 20; i++) {
 		personne.course(tableau[i]);
 		tableau[i].print();
+		cout << endl << "----------------------------------" << endl;
 	}
 	//-------------------Leaderboard-------------------------------------------------------------------------------------------------------
 	vector<Coureur> rangement;
@@ -54,6 +55,7 @@ int main() {
 	}
 	//-----------AFFICHAGE-FICHIER-----------------------------------------------------------------------------------------------------
 	string fichier;
+	cout << endl << "Choix du nom de votre fichier : ";
 	cin >> fichier;
 	ofstream fichierDeResultat;
 	//---------------------------------Changer le répertoire pour le TXT------------------------------------------------------
