@@ -8,8 +8,8 @@ using namespace std;
 class Parcours {
 public:
 	Parcours();
-	void print();
 	void course(Coureur &joueur);
+	void course1(Coureur& joueur);
 	float vent(Coureur &joueur, float vitesse);
 	vector<int> getEtapes();
 	float getNbEtapes();

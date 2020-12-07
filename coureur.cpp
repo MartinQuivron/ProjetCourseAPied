@@ -5,7 +5,6 @@ using namespace std;
 
 int i = 0;
 Coureur::Coureur() {
-    place = 0;
     temps = 0;
     distance = 0;
     dossard = i + 1;
@@ -112,14 +111,7 @@ string Coureur::getName() {
     return nom;
 }
 
-/*float Coureur::getTemps(){
-    float temps = 42000 / getVitesseMoy();
-    return temps;
-}*/
-
-
 void Coureur::print() {
-    cout << "Place : " << place << endl;
     cout << "nom : " << nom << endl;
     cout << "numéro de dossad : " << dossard << endl;
     cout << "masse : " << masse << " Kg" << endl;

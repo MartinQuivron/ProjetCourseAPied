@@ -10,18 +10,20 @@
 using namespace std;
 using namespace sf;
 
-
 int main() {
 	setlocale(LC_ALL, "fr-FR");
 	srand(time(nullptr));
 
 	Coureur tableau[20];
 	Parcours personne;
-	for (int i = 0; i < 20; i++) {
+	tableau[0].print();
+	personne.course1(tableau[0]);
+	tableau[0].print();
+	for (int i = 1; i < 20; i++) {
 		personne.course(tableau[i]);
 		tableau[i].print();
 	}
-
+	//Leaderboard------------------------------------------------------------------------------
 	vector<Coureur> rangement;
 	int best = 99999;
 	int tmp = 99999;
@@ -46,28 +48,15 @@ int main() {
 		rangement.push_back(tableau[leJ]);
 	}
 
-	/*personne.course(tableau);
-	tableau[0].print();
-	cout << tableau[0].temps << endl;*/
-
-
-	/*tableau[18].print();
-	Parcours joueur;
-	joueur.print();
-	return 0;*/
 	string fichier;
 	cin >> fichier;
 	ofstream fichierDeResultat;
-	fichierDeResultat.open("C:/Users/marti/Desktop/" + fichier + ".txt", ios::out);
+	fichierDeResultat.open("C:/Users/marti/Desktop/LeaderBoard/" + fichier + ".txt", ios::out);
 	if (fichierDeResultat) {
 		fichierDeResultat << "Resultats de l'épreuve du marathon :" << endl;
 		for (int i = 0; i < 20; i++) {
 			fichierDeResultat << i+1 << ") - Nom : " << rangement[i].getName() << " - Temps : " << rangement[i].getTemps() / 3600 << " h - Vitesse Moyenne : " << 42000/(rangement[i].getTemps()) << " m/s" << endl;
 		}
-		/*filetop << "Temps : " << hours << " H " << mins << " M " << secs << " S " << "\n";
-			filetop << "Semaine de préparation : " << smp << "\n";
-			filetop << "Vitesse Moyenne Précédente : " << UnTab.AllCoureur[i].VMprec << "\n";
-			filetop << "\n";*/
 	}
 	else { cout << "Impossible d'ouvrir ce fichier ! " << endl; }
 	fichierDeResultat.close();
